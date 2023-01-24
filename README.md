@@ -54,43 +54,82 @@ D7 = X Y Z
 ![image](https://user-images.githubusercontent.com/36288975/171543866-5a6eace6-8683-49d7-9c4f-a7cb30ec3035.png)
 ## Figure -04 8 to 3 Decoder implementation 
 
-### Procedure
-/* write all the steps invloved */
+### Procedure:
+```
+Step 1:
+Open Quartus II and select new project and choose the file location.
 
+Step 2:
+Module Declaration. Module should have the file name.
 
+Step 3:
+Input-Output Delecaration.
 
-### PROGRAM 
-/*
-Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Step 4:
+Use assign to define the functionality of logic circuits.
 
+Step 5:
+At the end give endmodule.
 
+Step 6:
+Run the program and choose RTL viewer to get RTL realization.
+```
+### Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
+### Developed by: Sangaman.R
+### RegisterNumber: 22009061 
 
-
-
-
+### PROGRAM:
+## For Encoder:
+```
+module encode(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+```
+## For Decoder:
+```
+module decode(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+output d0,d1,d2,d3,d4,d5,d6,d7;
+input a,b,c;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule
+```
 ### RTL LOGIC  
+## Encoder:
+![EN](https://user-images.githubusercontent.com/93427224/199722262-a792dc3d-f097-4776-aaa4-05b20ae332d6.png)
 
 
-
-
-
-
+## Decoder:
+![DE](https://user-images.githubusercontent.com/93427224/199722282-77da3770-1a25-4dc5-929a-13b21b355bca.png)
 
 
 ### TIMING DIGRAMS  
+## Encoder:
+![EN](https://user-images.githubusercontent.com/93427224/199722302-9d73534b-c2b7-4372-b409-3874cafa95e4.png)
 
 
-
+## Decoder:
+![DE](https://user-images.githubusercontent.com/93427224/199722362-74e69412-0899-454b-ace8-08ab55523e88.png)
 
 
 ### TRUTH TABLE 
+## Encoder:
+![EN](https://user-images.githubusercontent.com/93427224/199722693-1b352d1c-b2d1-4180-ba10-b23272efdd07.png)
 
 
+## Decoder:
+![DE](https://user-images.githubusercontent.com/93427224/199723170-e824860d-4523-4087-99d4-db1810c5730a.png)
 
 
-
-
-### RESULTS 
+### RESULT: 
+8 to 3 Encoder and 3to8 Decoder has been implemented by using verilog and its outputs are validated.
